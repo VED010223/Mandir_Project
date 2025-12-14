@@ -25,6 +25,14 @@
       50% { right: 20%; }
       100% { right: 110%; }
     }
+    @media (max-width: 576px) {
+    .rotating-title h1 {
+    white-space: normal;   /* allow wrapping */
+    font-size: 1.5rem;     /* smaller font for mobile */
+    animation: none;       /* disable sliding if needed */
+    text-align: center;
+  }
+}
     .section-title { font-weight: 700; margin-bottom: 20px; color: #8b0000; }
     .card { transition: transform 0.3s, box-shadow 0.3s; }
     .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
