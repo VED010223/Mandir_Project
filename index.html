@@ -1,180 +1,850 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>श्री १००८ आदिनाथ दिगंबर जैन मंदिर</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>श्री १००८ आदिनाथ दिगंबर जैन मंदिर, गावभाग, इचलकरंजी</title>
+<meta name="description" content="श्री १००८ आदिनाथ दिगंबर जैन मंदिर, गावभाग, इचलकरंजी — दर्शन व पूजेच्या वेळा, वार्षिक उत्सव दिनदर्शिका, ऑनलाइन पूजा आणि मंदिराचा इतिहास." />
+<meta name="theme-color" content="#7a1f2b" />
 
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Fonts: a dignified Devanagari display face for headings, a clean Devanagari/Latin face for body copy -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Marathi&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    body { font-family: 'Segoe UI', sans-serif; background: #fffaf0; }
-    .rotating-title h1 {
-      background: linear-gradient(90deg, #b8860b, #8b0000);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      font-weight: 800;
-      font-size: 2.8rem;
-      animation: slideLR 15s linear infinite;
-      white-space: nowrap;
-      position: relative;
-    }
-    @keyframes slideLR {
-      0% { right: -100%; position: relative; }
-      50% { right: 20%; }
-      100% { right: 110%; }
-    }
-    @media (max-width: 576px) {
-    .rotating-title h1 {
-    white-space: normal;   /* allow wrapping */
-    font-size: 1.5rem;     /* smaller font for mobile */
-    animation: none;       /* disable sliding if needed */
+<style>
+  /* ============================================================
+     DESIGN TOKENS
+     ============================================================ */
+  :root {
+    --color-bg:          #FBF7F0; /* warm marble */
+    --color-surface:     #F3ECDD; /* soft cream panel */
+    --color-ink:         #2B2320; /* near-black warm charcoal */
+    --color-ink-soft:    #6B5E52; /* muted secondary text */
+    --color-maroon:      #7A1F2B; /* primary accent */
+    --color-maroon-dark: #551620; /* pressed / hover state */
+    --color-gold:        #AD8A3B; /* secondary accent */
+    --color-gold-soft:   #E8DCC0; /* hairline / border tint */
+    --color-white:       #FFFFFF;
+
+    --font-display: 'Tiro Devanagari Marathi', 'Noto Sans Devanagari', serif;
+    --font-body:    'Noto Sans Devanagari', 'Segoe UI', sans-serif;
+
+    --radius-sm: 4px;
+    --radius-md: 10px;
+    --shadow-sm: 0 1px 3px rgba(43, 35, 32, 0.08);
+    --shadow-md: 0 10px 30px rgba(43, 35, 32, 0.12);
+
+    --container-w: 1120px;
+  }
+
+  * { box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--color-ink);
+    background: var(--color-bg);
+    line-height: 1.7;
+  }
+
+  img { max-width: 100%; display: block; }
+
+  a { color: inherit; }
+
+  .container {
+    max-width: var(--container-w);
+    margin-inline: auto;
+    padding-inline: 24px;
+  }
+
+  h1, h2, h3, h4 { font-family: var(--font-display); color: var(--color-maroon); margin: 0; }
+
+  .eyebrow {
+    display: inline-block;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.78rem;
+    letter-spacing: 0.14em;
+    color: var(--color-gold);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+
+  .section-title {
+    font-size: clamp(1.5rem, 1.1rem + 1.4vw, 2.1rem);
+    margin-bottom: 8px;
+  }
+
+  .section-sub {
+    color: var(--color-ink-soft);
+    max-width: 62ch;
+    margin: 0 0 32px;
+  }
+
+  section { padding: 72px 0; }
+  section.alt { background: var(--color-surface); }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--color-maroon);
+    color: var(--color-white);
+    padding: 10px 18px;
+    z-index: 1000;
+    border-radius: var(--radius-sm);
+  }
+  .skip-link:focus { left: 12px; top: 12px; }
+
+  :focus-visible {
+    outline: 3px solid var(--color-gold);
+    outline-offset: 2px;
+  }
+
+  /* ============================================================
+     TOP INFO BAR
+     ============================================================ */
+  .info-bar {
+    background: var(--color-maroon);
+    color: var(--color-white);
+    font-size: 0.86rem;
+    padding: 8px 0;
     text-align: center;
   }
-}
-    .section-title { font-weight: 700; margin-bottom: 20px; color: #8b0000; }
-    .card { transition: transform 0.3s, box-shadow 0.3s; }
-    .card:hover { transform: translateY(-5px); box-shadow: 0 8px 20px rgba(0,0,0,0.15); }
-    footer { background: #8b0000; color: #fff; padding: 20px 0; }
-  </style>
+  .info-bar .container { display: flex; flex-wrap: wrap; gap: 6px 20px; justify-content: center; align-items: center; }
+  .info-bar strong { font-weight: 600; }
+  .info-bar .divider { opacity: 0.5; }
+
+  /* ============================================================
+     NAVIGATION
+     ============================================================ */
+  .site-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(251, 247, 240, 0.92);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--color-gold-soft);
+  }
+  .site-nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-block: 12px;
+  }
+  .brand {
+    font-family: var(--font-display);
+    color: var(--color-maroon);
+    font-weight: 700;
+    font-size: 1.05rem;
+    text-decoration: none;
+    line-height: 1.3;
+  }
+  .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+    margin: 0; padding: 0;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.94rem;
+    color: var(--color-ink);
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: border-color .2s ease, color .2s ease;
+  }
+  .nav-links a:hover { color: var(--color-maroon); border-color: var(--color-gold); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1px solid var(--color-gold-soft);
+    border-radius: var(--radius-sm);
+    padding: 8px 10px;
+    cursor: pointer;
+  }
+  .nav-toggle span, .nav-toggle span::before, .nav-toggle span::after {
+    display: block; width: 20px; height: 2px; background: var(--color-maroon);
+    position: relative; transition: transform .2s ease;
+  }
+  .nav-toggle span::before, .nav-toggle span::after { content: ""; position: absolute; }
+  .nav-toggle span::before { top: -6px; }
+  .nav-toggle span::after { top: 6px; }
+
+  /* ============================================================
+     BUTTONS
+     ============================================================ */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 0.92rem;
+    text-decoration: none;
+    padding: 12px 22px;
+    border-radius: var(--radius-sm);
+    border: 1px solid transparent;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--color-maroon); color: var(--color-white); }
+  .btn-primary:hover { background: var(--color-maroon-dark); box-shadow: var(--shadow-md); }
+  .btn-outline { background: transparent; color: var(--color-maroon); border-color: var(--color-maroon); }
+  .btn-outline:hover { background: var(--color-maroon); color: var(--color-white); }
+  .btn-group { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .hero {
+    text-align: center;
+    padding: 64px 0 0;
+    position: relative;
+  }
+  .hero .eyebrow { display: block; }
+  .hero h1 {
+    font-size: clamp(1.6rem, 1.1rem + 2.4vw, 2.9rem);
+    line-height: 1.25;
+    margin-bottom: 20px;
+  }
+  .mantra-plaque {
+    background: var(--color-surface);
+    border: 1px solid var(--color-gold-soft);
+    border-radius: var(--radius-md);
+    max-width: 720px;
+    margin: 0 auto 24px;
+    padding: 28px 24px;
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    color: var(--color-maroon-dark);
+  }
+  .mantra-plaque p { margin: 6px 0; }
+
+  .notice {
+    color: var(--color-maroon);
+    font-weight: 600;
+    font-size: 0.95rem;
+    max-width: 640px;
+    margin: 0 auto 28px;
+  }
+
+  /* Temple-spire divider: a repeating peak silhouette, used between sections
+     instead of a generic straight rule — nods to the shikhara profile. */
+  .spire-divider {
+    display: block;
+    width: 100%;
+    height: 22px;
+    line-height: 0;
+  }
+  .spire-divider svg { width: 100%; height: 100%; display: block; }
+
+  /* ============================================================
+     ABOUT
+     ============================================================ */
+  .about-text p { margin: 0 0 16px; text-align: justify; }
+  .notes-box {
+    background: var(--color-surface);
+    border-inline-start: 4px solid var(--color-gold);
+    border-radius: var(--radius-sm);
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+  .notes-box h4 { color: var(--color-maroon-dark); font-size: 1rem; margin-bottom: 10px; }
+  .notes-box ol { margin: 0; padding-inline-start: 20px; }
+  .notes-box li { margin-bottom: 8px; }
+
+  /* ============================================================
+     GALLERY
+     ============================================================ */
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+  }
+  .gallery-card {
+    background: var(--color-white);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .gallery-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+  .gallery-card img { aspect-ratio: 4/3; object-fit: cover; }
+  .gallery-card figcaption {
+    padding: 12px 16px;
+    font-weight: 600;
+    color: var(--color-maroon-dark);
+  }
+  .gallery-links { margin-top: 28px; }
+
+   /* ===== Gallery Lightbox ===== */
+
+  .gallery-card img{
+   cursor: zoom-in;
+   transition:.3s;
+   }
+
+   .gallery-card img:hover{
+    transform:scale(1.03);
+   }
+
+   .image-modal{
+   position:fixed;
+   inset:0;
+   background:rgba(0,0,0,.92);
+   display:none;
+   justify-content:center;
+   align-items:center;
+   flex-direction:column;
+   z-index:9999;
+   padding:20px;
+  }
+
+  .image-modal.show{
+   display:flex;
+  }
+
+  .image-modal img{
+   max-width:92%;
+   max-height:82vh;
+   border-radius:10px;
+   box-shadow:0 0 25px rgba(0,0,0,.5);
+  }
+
+  .close-btn{
+   position:absolute;
+   top:20px;
+   right:30px;
+   font-size:42px;
+   color:#fff;
+   cursor:pointer;
+   font-weight:bold;
+   user-select:none;
+  }
+
+  .modal-actions{
+   margin-top:20px;
+   display:flex;
+   gap:12px;
+  }
+
+  .modal-actions a,
+  .modal-actions button{
+   border:none;
+   padding:12px 22px;
+   border-radius:8px;
+   cursor:pointer;
+   text-decoration:none;
+   font-size:15px;
+   font-weight:600;
+  }
+
+  .download-btn{
+   background:#7A1F2B;
+   color:#fff; 
+  }
+
+  .download-btn:hover{
+   background:#551620;
+  }
+ 
+  .cancel-btn{
+   background:#ddd;
+   color:#222;
+  }
+
+  .cancel-btn:hover{
+   background:#bbb;
+  }
+
+  /* ============================================================
+     ONLINE POOJA
+     ============================================================ */
+  .meeting-card {
+    background: var(--color-maroon);
+    color: var(--color-white);
+    border-radius: var(--radius-md);
+    padding: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .meeting-card h2 { color: var(--color-white); }
+  .meeting-card p { margin: 8px 0 0; color: rgba(255,255,255,0.85); }
+  .meeting-card .btn-primary { background: var(--color-white); color: var(--color-maroon); }
+  .meeting-card .btn-primary:hover { background: var(--color-gold-soft); }
+
+  /* ============================================================
+     FESTIVAL CALENDAR — a genuine chronological sequence (Jain
+     calendar months, in order), so numbering/date labels here
+     encode real information rather than decorate.
+     ============================================================ */
+  .calendar-list { list-style: none; margin: 0; padding: 0; }
+  .calendar-list li {
+    display: grid;
+    grid-template-columns: minmax(160px, 220px) 1fr;
+    gap: 6px 24px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--color-gold-soft);
+  }
+  .calendar-list li:first-child { border-top: 1px solid var(--color-gold-soft); }
+  .cal-date { font-weight: 700; color: var(--color-maroon); }
+  .cal-event { color: var(--color-ink); }
+  .calendar-close {
+    text-align: center;
+    font-family: var(--font-display);
+    color: var(--color-gold);
+    margin-top: 28px;
+    font-size: 1.05rem;
+  }
+
+  /* ============================================================
+     MAP
+     ============================================================ */
+  .map-frame {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+  }
+  .ratio-16x9 { position: relative; width: 100%; padding-top: 56.25%; }
+  .ratio-16x9 iframe {
+    position: absolute; inset: 0; width: 100%; height: 100%; border: 0;
+  }
+  .map-link { margin-top: 14px; display: inline-block; font-weight: 600; color: var(--color-maroon); }
+
+  /* ============================================================
+     CONTACT
+     ============================================================ */
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+  }
+  .contact-card {
+    background: var(--color-white);
+    border: 1px solid var(--color-gold-soft);
+    border-radius: var(--radius-md);
+    padding: 24px;
+  }
+  .contact-card h3 { font-size: 1.05rem; margin-bottom: 4px; }
+  .contact-card .role { color: var(--color-gold); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 10px; }
+  .contact-card a.phone { font-weight: 600; color: var(--color-maroon-dark); text-decoration: none; }
+  .contact-card a.phone:hover { text-decoration: underline; }
+
+  /* ============================================================
+     FOOTER
+     ============================================================ */
+  footer {
+    background: var(--color-maroon-dark);
+    color: rgba(255,255,255,0.85);
+    text-align: center;
+    padding: 28px 0;
+    font-size: 0.9rem;
+  }
+
+  /* back to top */
+  .to-top {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background: var(--color-maroon);
+    color: var(--color-white);
+    border: none;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-md);
+    font-size: 1.1rem;
+    z-index: 99;
+  }
+  .to-top.visible { display: flex; }
+
+  /* ============================================================
+     RESPONSIVE
+     ============================================================ */
+  @media (max-width: 860px) {
+    .nav-links {
+      position: absolute;
+      top: 100%; left: 0; right: 0;
+      background: var(--color-bg);
+      flex-direction: column;
+      gap: 0;
+      border-bottom: 1px solid var(--color-gold-soft);
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .25s ease;
+    }
+    .nav-links.open { max-height: 320px; }
+    .nav-links li { border-top: 1px solid var(--color-gold-soft); }
+    .nav-links a { display: block; padding: 14px 24px; border-bottom: none; }
+    .nav-toggle { display: inline-flex; flex-direction: column; align-items: center; justify-content: center; gap: 0; }
+  }
+
+  @media (max-width: 600px) {
+    section { padding: 52px 0; }
+    .calendar-list li { grid-template-columns: 1fr; gap: 2px; }
+    .meeting-card { flex-direction: column; text-align: center; justify-content: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .btn:hover, .gallery-card:hover { transform: none; }
+  }
+</style>
 </head>
 <body>
 
-<!-- Temple timings -->
-<nav class="navbar navbar-light bg-light sticky-top shadow-sm">
+<a href="#main" class="skip-link">मुख्य मजकुराकडे जा</a>
+
+<!-- Top info bar -->
+<div class="info-bar">
   <div class="container">
-    <span class="navbar-text">
-      <strong>Darshan Timings [ दर्शनाची वेळ ] : स. ०६:०० पासुन – स. ११:३० पर्यंत | संध्या. ०५:४५ पासुन – रात्री. ०८:३० पर्यंत</strong> <br>
-      <strong>Pooja Timings [ पूजेची वेळ ] : स. ०६:३० वाजता आणि स. ०९:०० वाजता</strong> </span> <br>
-    <a href="#contact" class="btn btn-warning btn-sm">Contact Us</a>
+    <span><strong>दर्शनाची वेळ:</strong> स. ०६:०० – स. ११:३० &nbsp;|&nbsp; सायं. ०५:४५ – रात्री ०८:३०</span>
+    <span class="divider">•</span>
+    <span><strong>पूजेची वेळ:</strong> स. ०६:३० आणि स. ०९:००</span>
+  </div>
+</div>
+
+<!-- Navigation -->
+<nav class="site-nav" aria-label="मुख्य नेव्हिगेशन">
+  <div class="container">
+    <a href="#top" class="brand">आदिनाथ दिगंबर जैन मंदिर<br>इचलकरंजी.</a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="navLinks" aria-label="मेनू उघडा/बंद करा">
+      <span></span>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#info">मंदिराबद्दल</a></li>
+      <li><a href="#gallery">छायाचित्रे</a></li>
+      <li><a href="#programs">उत्सव दिनदर्शिका</a></li>
+      <li><a href="#meeting">ऑनलाइन पूजा</a></li>
+      <li><a href="#map">स्थान</a></li>
+      <li><a href="#contact">संपर्क</a></li>
+    </ul>
   </div>
 </nav>
 
-<!-- Hero -->
-<header class="text-center py-5 bg-light">
-  <div class="rotating-title">
-    <h1><br>श्री १००८ आदिनाथ दिगंबर जैन मंदिर, गावभाग, इचलकरंजी.</h1>
-  </div>
-  <p class="lead mt-3">
-  
-        "|| णमो अरिहंताणं, णमो सिद्धाणं, णमो आयरियाणं, णमो उवज्झायाणं, णमो लोए सव्वसाहूणं ||" <br>
-        "|| एसो पंच णमुक्कारो सव्व पावप्पणासणो मंगलाणं च सव्वेसिं पढमं हवइ मंगलं ||"
+<main id="main">
 
-  </p><br>
-  <div>
-    <h6 style="color: red;"><br>सूचना: ही वेबसाइट केवळ धार्मिक कार्य आणि धार्मिक ज्ञानाच्या उद्देशाने आहे.</h6>
-  </div><br>
-  <a href="#programs" class="btn btn-warning">Festival Calendar</a>
-  <a href="#meeting" class="btn btn-outline-warning">Join Online</a>
-  <a href="https://www.instagram.com/reel/DHDPfJASkeW/" class="btn btn-outline-warning">Instagram Video</a> <br> <br>
-  <a href="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHYR7DLWVM5F4NHUYjuhqWOJMBk3V9rOFy7Sg3KxEVxNFk9gI2mymf2ujZ8jOfYC4kuoID-IBGRo6cOCyapmdV2oXp25gNFjZZbbgT6IwxJj1c05HNu5nh5Efa-pY8FqsTrc70i=s1360-w1360-h1020-rw" class="btn btn-outline-warning">मंदिर शिखर</a>
-  <a href="https://lh3.googleusercontent.com/gps-cs-s/APNQkAH0BV9qMgNVqTpEME5OuqDd-zBMI8NvWfUM1NCBotnvgYr1vq7y0SXiEDinJxQ526VYi85WefYHbcqhVU0spZVQ-LKlim13_F3yj2naHsFzLMj79vZDuWKc7Vwsz-l8g9ueJZL6=s1360-w1360-h1020-rw" class="btn btn-outline-warning">मंदिर मानस्तंभ</a>
-<a href="https://youtube.com/@adinathdigambarjainmandir5628?si=NS1SkKrcQwWgTupa" class="btn btn-outline-warning">मंदिर यूट्यूब चॅनेल</a>
-</header>
+  <!-- Hero -->
+  <header class="hero" id="top">
+    <div class="container">
+      <span class="eyebrow">श्री १००८ आदिनाथ दिगंबर जैन मंदिर</span>
+      <h1>गावभाग, इचलकरंजी.</h1>
 
-<!-- About -->
-<section id="info" class="py-5">
-  <div class="container">
-    <h2 class="section-title">About the Temple</h2><b>
-    <p style="text-align: justify;">        
-              हे आदिनाथ दिगंबर जैन मंदिर अतिप्राचीन म्हणजे किमान २५० वर्षापूर्वीचे आहे. मंदिरातील श्री १००८ आदिनाथ भगवंतांची प्रतिमा २५० वर्षापूर्वीची आहे.
-              ही प्रतिमा पंचगंगा नदी पात्रामध्ये सापडली आहे मग त्या प्रतिमेची स्थापना इचलकरंजी चे जहागीरदार श्रीमंत बाबासाहेब घोरपडे यानी ध.श्री.सत्याप्पा आवाडे यांच्या कडून इचलकरंजी येथे जिन मंदिरामध्ये स्थापन करून घेतली. 
-              त्यामुळे हे मंदिर अतिशय युक्त आहे. या मंदिराचा जिर्णोद्धार सन १९९३ साली झाला.
-              मंदिराची व्यवस्था पूर्वीपासून श्रीमान बाबूराव सत्याप्पा आवाडे यांच्या मार्गदर्शनाने चालत होती. 
-              त्यानंतर श्री.नरसिंगा धोंडी चिंचवाडे, श्री.कल्लाप्पा बाबाजी चौगुले, श्री.बळवंत चौगुले यांनी विशेष करून भरपूर परिश्रम घेऊन मंदिराची व्यवस्था पाहिली. 
-              मंदिरासाठी त्यानंतर श्री.कल्लाप्पाण्णा बाबूराव आवाडे यांच्या परिवाराचे मोठे योगदान लाभले आहे. 
-              तसेच श्रीमती.सरोजनी बाबासो खंजिरे व परिवार, श्री.गोविंदराव उर्फ आबासाहेब नारायण घोरपडे जहागीरदार यांचे मोठे योगदान लाभले आहे. 
-              श्री.नरसिंगा धोंडी चिंचवाडे, श्री.कल्लाप्पा बाबाजी चौगुले, श्री.कल्लाप्पाण्णा बा.आवाडे,श्री.भरमू आ.मगदूम,श्री.बापूसो दे.लोखंडे,श्री.आप्पासो भा.चौगुले व 
-              विद्यमान श्री.गुंडाप्पाण्णा रोजे (चौगुले) यांनी आजपर्यंत अध्यक्षाची चांगल्या पध्दतीने संस्थेची धुरा सांभाळली.सध्या अध्यक्ष म्हणून श्री.गुंडाप्पाण्णा रोजे व सर्व ट्रस्ट यांच्या मार्गदर्शनाने मंदिराची व्यवस्था चालते. 
-              या मंदिरामध्ये महावीर जयंती, पर्यूषण पर्व आणि इतर धार्मिक व सामाजिक कार्यक्रम होत असतात. 
-              हे मंदिर शहर व परिसरातील लाखो भक्तांचे श्रद्धास्थान आहे.
-              सर्वात उल्लेखनीय म्हणजे, आदिनाथांची मूर्ती स्थापित झाल्यापासून इचलकरंजीचा विकास - उत्कर्ष झपाट्याने झाला. व्यवसायात ऋद्धी  - भरभराट झाली, आर्थिक समृद्धी वाढली आणि देशभरातून लोक येथे स्थायिक होऊ लागले. 
-              त्यामुळे हे मंदिर आणि येथे स्थापित प्रतिमा अत्यंत प्रभावी आणि अतिशय युक्त मानली  जातात.
-              <br><br>
-              टीप:<br>
-              १. दर महिन्याला अमावस्या विशेष पूजा केली जाते. [ पूजेची वेळ ] : सकाळी ०८:४५ किंवा सकाळी ०९:००. <br>
-              २. ज्यांना वाढदिवस, इतर समारंभ किंवा धार्मिक कार्यक्रमा निमित्ताने पूजाविधी करावयाचे असतील परंतु कामानिमित्त व्यस्त असतील किंवा गावाबाहेर असतील, त्यांनी ही पूजा ऑनलाइन पद्धतीनेही करून घेऊ शकता. 
-              यासाठी कृपया पंडितजींना आधि कळवा, ज्यामुळे आवश्यक व्यवस्था वेळेवर करण्यात येईल.
-    </p>
-    </b>
-  </div>
-</section>
-<!-- Online Meeting -->
-<section id="meeting" class="py-5">
-  <div class="container">
-    <h2 class="section-title"> Online Pooja [ ऑनलाइन पूजा ]</h2>
-    <a href="https://meet.google.com/euw-ovba-xdx" target="_blank" class="btn btn-warning">Join Meeting</a>
-    <p class="mt-2"> टिप - पूजेची वेळ तुम्हाला सोशल मीडिया किंवा मोबाईल वरती देण्यात येइल.</p>
-  </div>
-</section>
+      <div class="mantra-plaque">
+        <p>|| णमो अरिहंताणं, णमो सिद्धाणं, णमो आयरियाणं, णमो उवज्झायाणं, णमो लोए सव्वसाहूणं ||</p>
+        <p>|| एसो पंच णमुक्कारो सव्व पावप्पणासणो मंगलाणं च सव्वेसिं पढमं हवइ मंगलं ||</p>
+      </div>
 
-<!-- Programs -->
-<section id="programs" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="section-title">Annual Festival Calendar [ वार्षिक उत्सव दिनदर्शिका - जैन-तिथी नुसार ]</h2>
-    <ul>
-      <li><strong> चैत्र मास - शुक्ल  १:</strong> गुढी पाडवा </li>
-      <li><strong> चैत्र मास - शुक्ल  १३:</strong> श्री महावीर जयंती </li>
-      <li><strong> वैशाख मास - शुक्ल ४:</strong> अक्षय्य-तृतीया [इक्षुरस दिवस] </li>
-      <li><strong> ज्येष्ठ मास - शुक्ल ४ | ५:</strong> श्रुतपंचमी </li>
-      <li><strong> आषाढ मास - शुक्ल ८:</strong> अष्टान्हिक व्रतारंभ </li>
-      <li><strong> आषाढ मास - शुक्ल  १५:</strong> अष्टान्हिक समाप्त </li>
-      <li><strong> श्रावण मास - शुक्ल  ५:</strong> नागपंचमी </li>
-      <li><strong> श्रावण मास - शुक्ल  ७:</strong> मुकुट सप्तमी [पार्श्वनाथ पु.ति] </li>
-      <li><strong> श्रावण मास - शुक्ल  १०:</strong> कलश दशमी </li>
-      <li><strong> श्रावण मास - कृष्ण  १:</strong> षोडशकारण प्रारंभ </li>
-      <li><strong> भाद्रपद मास - शुक्ल  ५:</strong> दशलक्षण प्रारंभ </li>
-      <li><strong> भाद्रपद मास - शुक्ल  ७:</strong> निर्दोष सप्तमी </li>
-      <li><strong> भाद्रपद मास - शुक्ल  १०:</strong> सुगंध दशमी </li>
-      <li><strong> भाद्रपद मास - शुक्ल  ११:</strong> श्रुतस्कंध पूजा </li>
-      <li><strong> भाद्रपद मास - शुक्ल  १२:</strong> रत्नत्रय - द्वादशी - अनंत व्रतारंभ </li>
-      <li><strong> भाद्रपद मास - शुक्ल  १४:</strong> जीवदया पूजा </li>
-      <li><strong> भाद्रपद मास - शुक्ल  १५:</strong> दशलक्षण - रत्नत्रय व्रत समाप्त </li>
-      <li><strong> भाद्रपद मास - कृष्ण  १:</strong> पर्युषण पर्व समाप्त </li>
-      <li><strong> भाद्रपद मास - कृष्ण  २:</strong> षोडशकारण पर्व समाप्त </li>  
-      <li><strong> आश्विन मास - शुक्ल  १:</strong> नवरात्र प्रारंभ </li>
-      <li><strong> आश्विन मास - शुक्ल  ९:</strong> नवरात्र समाप्त </li> 
-      <li><strong> आश्विन मास - कृष्ण  १४:</strong> निर्वाण चतुर्दशी </li> 
-      <li><strong> आश्विन मास - कृष्ण  ३०:</strong> महावीर मोक्षतिथी निर्वाणत्सव </li>   
-      <li><strong> कार्तिक मास - कृष्ण  ३० | शुक्ल  १:</strong> लक्ष्मी-सरस्वती पुजन - महावीर निर्वाणत्सव - संवत्सरारंभ संवत </li>
-      <li><strong> कार्तिक मास - शुक्ल ८:</strong> अष्टान्हिक व्रतारंभ </li>
-      <li><strong> कार्तिक मास - शुक्ल  १५:</strong> अष्टान्हिक समाप्त </li>
-      <li><strong> फाल्गुन मास - शुक्ल ८:</strong> अष्टान्हिक व्रतारंभ </li>
-      <li><strong> फाल्गुन मास - शुक्ल  १५:</strong> अष्टान्हिक समाप्त </li>
-      <li><strong> फाल्गुन मास - कृष्ण  ८:</strong> श्री आदिनाथ जयंती </li>
-    </ul>
-    <h3>  ||इति जैन तिथी निर्णय ||  </h3>
-  </div>
-</section>
+      <p class="notice">सूचना: ही वेबसाइट केवळ धार्मिक कार्य आणि धार्मिक ज्ञानाच्या उद्देशाने आहे.</p>
 
-<!-- Map -->
-<section id="map" class="py-5 bg-light">
-  <div class="container">
-    <h2 class="section-title">Temple Location [ मंदिराचे स्थान ]</h2>
-    <div class="ratio ratio-16x9">
-      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d238.87375141954172!2d74.4730168!3d16.6778831!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc0e32b19306c15%3A0xa819247c461240d2!2sAadinath%20digambar%20jain%20mandir!5e0!3m2!1sen!2sin!4v1764825902942!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe> //https://maps.app.goo.gl/XfVt5HkoUJ1JuqMC8
+      <div class="btn-group" style="justify-content:center; margin-bottom: 56px;">
+        <a href="#programs" class="btn btn-primary">उत्सव दिनदर्शिका पहा</a>
+        <a href="#meeting" class="btn btn-outline">ऑनलाइन सहभागी व्हा</a>
+        <a href="https://www.instagram.com/reel/DHDPfJASkeW/" class="btn btn-outline" target="_blank" rel="noopener">इंस्टाग्राम</a>
+        <a href="https://youtube.com/@adinathdigambarjainmandir5628?si=NS1SkKrcQwWgTupa" class="btn btn-outline" target="_blank" rel="noopener">युट्यूब</a>
+      </div>
     </div>
-  </div>
-</section>
-
-<!-- Contact -->
-<section id="contact" class="py-5">
-  <div class="container">
-    <h2 class="section-title">Contact Us</h2>
-     <div class="row g-4">
-      <div class="col-md-4"><div class="card p-3"><h5>श्री. राजू उर्फ जिनेंद्र शां.उपाध्ये.</h5><p>पंडित जी [ विद्वान ]<br>मोबाईल नंबर: +91 7588324305 , 9370595052</p></div></div>
-      <div class="col-md-4"><div class="card p-3"><h5>श्री. मोहन रमेश उपाध्ये.</h5><p>वीर सेवा दल [तालुका सदस्य आणि संघनायक]<br>मोबाईल नंबर: +91 9604462164</p></div></div>
+    <div class="spire-divider" aria-hidden="true">
+      <svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M0 12 L10 2 L20 12 L30 2 L40 12 L50 2 L60 12 L70 2 L80 12 L90 2 L100 12 L110 2 L120 12 L130 2 L140 12 L150 2 L160 12 L170 2 L180 12 L190 2 L200 12 Z" fill="#F3ECDD"/></svg>
     </div>
+  </header>
+
+  <!-- About -->
+  <section id="info">
+    <div class="container">
+      <span class="eyebrow">इतिहास</span>
+      <h2 class="section-title">मंदिराबद्दल</h2>
+      <p class="section-sub">२५० वर्षांहून अधिक जुनी परंपरा आणि श्रद्धेचे केंद्र.</p>
+
+      <div class="about-text">
+        <p>
+          हे आदिनाथ दिगंबर जैन मंदिर अतिप्राचीन असून किमान २५० वर्षांपूर्वीचे आहे. मंदिरातील श्री १००८ आदिनाथ भगवंतांची प्रतिमादेखील सुमारे २५० वर्षांपूर्वीची आहे.
+          ही प्रतिमा पंचगंगा नदीपात्रात सापडली, आणि इचलकरंजीचे जहागीरदार श्रीमंत बाबासाहेब घोरपडे यांनी ध. श्री. सत्याप्पा आवाडे यांच्या मार्फत तिची स्थापना इचलकरंजी येथील जिन मंदिरामध्ये करवून घेतली.
+          त्यामुळे हे मंदिर अत्यंत युक्त व श्रद्धेचे स्थान मानले जाते. मंदिराचा जीर्णोद्धार सन १९९३ साली झाला.
+        </p>
+        <p>
+          मंदिराची व्यवस्था पूर्वीपासून श्रीमान बाबूराव सत्याप्पा आवाडे यांच्या मार्गदर्शनाखाली चालत होती. त्यानंतर श्री. नरसिंगा धोंडी चिंचवाडे, श्री. कल्लाप्पा बाबाजी चौगुले आणि श्री. बळवंत चौगुले यांनी विशेष परिश्रम घेऊन मंदिराची व्यवस्था सांभाळली.
+          श्री. कल्लाप्पाण्णा बाबूराव आवाडे यांच्या परिवाराचे तसेच श्रीमती सरोजनी बाबासो खंजिरे व परिवार आणि श्री. गोविंदराव उर्फ आबासाहेब नारायण घोरपडे जहागीरदार यांचे मोठे योगदान लाभले आहे.
+        </p>
+        <p>
+          श्री. नरसिंगा धोंडी चिंचवाडे, श्री. कल्लाप्पा बाबाजी चौगुले, श्री. कल्लाप्पाण्णा बा. आवाडे, श्री. भरमू आ. मगदूम, श्री. बापूसो दे. लोखंडे, श्री. आप्पासो भा. चौगुले आणि विद्यमान श्री. गुंडाप्पाण्णा रोजे (चौगुले) यांनी आजपर्यंत अध्यक्षपदाची जबाबदारी सक्षमपणे सांभाळली आहे.
+          सध्या श्री. गुंडाप्पाण्णा रोजे व संपूर्ण विश्वस्त मंडळाच्या मार्गदर्शनाखाली मंदिराची व्यवस्था चालते.
+        </p>
+        <p>
+          मंदिरामध्ये महावीर जयंती, पर्युषण पर्व आणि इतर धार्मिक व सामाजिक कार्यक्रम नियमितपणे साजरे होतात. शहर व परिसरातील लाखो भक्तांचे हे श्रद्धास्थान आहे.
+          उल्लेखनीय बाब म्हणजे आदिनाथांची मूर्ती स्थापित झाल्यापासून इचलकरंजीचा विकास वेगाने झाला — व्यवसायात भरभराट, आर्थिक समृद्धी आणि देशभरातून लोकांचे येथे स्थायिक होणे — यामुळे हे मंदिर व येथील प्रतिमा अत्यंत प्रभावी मानली जाते.
+        </p>
+
+        <div class="notes-box">
+          <h4>टीप</h4>
+          <ol>
+            <li>दर महिन्याला अमावस्येला विशेष पूजा केली जाते. पूजेची वेळ: सकाळी ०८:४५ किंवा ०९:००.</li>
+            <li>वाढदिवस, इतर समारंभ किंवा धार्मिक कार्यक्रमानिमित्त पूजाविधी करावयाचा असल्यास, परंतु आपण व्यस्त असाल किंवा गावाबाहेर असाल, तर ही पूजा ऑनलाइन पद्धतीनेही करून घेता येते. यासाठी कृपया पंडितजींना आधी कळवावे, जेणेकरून आवश्यक व्यवस्था वेळेवर करता येईल.</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="spire-divider" aria-hidden="true">
+    <svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M0 12 L10 2 L20 12 L30 2 L40 12 L50 2 L60 12 L70 2 L80 12 L90 2 L100 12 L110 2 L120 12 L130 2 L140 12 L150 2 L160 12 L170 2 L180 12 L190 2 L200 12 Z" fill="#FBF7F0"/></svg>
   </div>
-</section>
+
+  <!-- Gallery -->
+
+  <!-- Image Viewer -->
+
+<div id="imageModal" class="image-modal">
+
+    <span class="close-btn">&times;</span>
+
+    <img id="modalImage" src="" alt="">
+
+    <div class="modal-actions">
+
+        <a id="downloadBtn"
+           class="download-btn"
+           download>
+            ⬇ Download
+        </a>
+
+        <button id="cancelBtn" class="cancel-btn">
+            ✖ Close
+        </button>
+
+    </div>
+
+</div>
+
+  <section id="gallery" class="alt">
+    <div class="container">
+      <span class="eyebrow">छायाचित्रे</span>
+      <h2 class="section-title">मंदिराची छायाचित्रे</h2>
+      <p class="section-sub">मंदिराचे शिखर व मानस्तंभ.</p>
+
+      <div class="gallery-grid">
+        <figure class="gallery-card">
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAHYR7DLWVM5F4NHUYjuhqWOJMBk3V9rOFy7Sg3KxEVxNFk9gI2mymf2ujZ8jOfYC4kuoID-IBGRo6cOCyapmdV2oXp25gNFjZZbbgT6IwxJj1c05HNu5nh5Efa-pY8FqsTrc70i=s1360-w1360-h1020-rw" alt="मंदिराचे शिखर" loading="lazy" />
+          <figcaption>मंदिर शिखर</figcaption>
+        </figure>
+        <figure class="gallery-card">
+          <img src="https://lh3.googleusercontent.com/gps-cs-s/APNQkAH0BV9qMgNVqTpEME5OuqDd-zBMI8NvWfUM1NCBotnvgYr1vq7y0SXiEDinJxQ526VYi85WefYHbcqhVU0spZVQ-LKlim13_F3yj2naHsFzLMj79vZDuWKc7Vwsz-l8g9ueJZL6=s1360-w1360-h1020-rw" alt="मंदिराचा मानस्तंभ" loading="lazy" />
+          <figcaption>मंदिर मानस्तंभ</figcaption>
+        </figure>
+      </div>
+
+      <div class="gallery-links">
+        <div class="btn-group">
+          <a href="https://www.instagram.com/reel/DHDPfJASkeW/" class="btn btn-outline" target="_blank" rel="noopener">इंस्टाग्राम वर पहा</a>
+          <a href="https://youtube.com/@adinathdigambarjainmandir5628?si=NS1SkKrcQwWgTupa" class="btn btn-outline" target="_blank" rel="noopener">युट्यूब चॅनेल</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Online Meeting -->
+  <section id="meeting">
+    <div class="container">
+      <div class="meeting-card">
+        <div>
+          <h2>ऑनलाइन पूजा</h2>
+          <p>पूजेची निश्चित वेळ आपल्याला सोशल मीडिया अथवा मोबाईलद्वारे कळवली जाईल.</p>
+        </div>
+        <a href="https://meet.google.com/euw-ovba-xdx" target="_blank" rel="noopener" class="btn btn-primary">मीटिंगमध्ये सहभागी व्हा</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section id="programs" class="alt">
+    <div class="container">
+      <span class="eyebrow">जैन तिथी निर्णय</span>
+      <h2 class="section-title">वार्षिक उत्सव दिनदर्शिका</h2>
+      <p class="section-sub">जैन तिथीनुसार क्रमाने मांडलेली वार्षिक पर्वांची यादी.</p>
+
+      <ul class="calendar-list">
+        <li><span class="cal-date">चैत्र मास – शुक्ल १</span><span class="cal-event">गुढी पाडवा</span></li>
+        <li><span class="cal-date">चैत्र मास – शुक्ल १३</span><span class="cal-event">श्री महावीर जयंती</span></li>
+        <li><span class="cal-date">वैशाख मास – शुक्ल ४</span><span class="cal-event">अक्षय्य-तृतीया (इक्षुरस दिवस)</span></li>
+        <li><span class="cal-date">ज्येष्ठ मास – शुक्ल ४ | ५</span><span class="cal-event">श्रुतपंचमी</span></li>
+        <li><span class="cal-date">आषाढ मास – शुक्ल ८</span><span class="cal-event">अष्टान्हिक व्रतारंभ</span></li>
+        <li><span class="cal-date">आषाढ मास – शुक्ल १५</span><span class="cal-event">अष्टान्हिक समाप्त</span></li>
+        <li><span class="cal-date">श्रावण मास – शुक्ल ५</span><span class="cal-event">नागपंचमी</span></li>
+        <li><span class="cal-date">श्रावण मास – शुक्ल ७</span><span class="cal-event">मुकुट सप्तमी (पार्श्वनाथ पु. ति.)</span></li>
+        <li><span class="cal-date">श्रावण मास – शुक्ल १०</span><span class="cal-event">कलश दशमी</span></li>
+        <li><span class="cal-date">भाद्रपद मास – शुक्ल १</span><span class="cal-event">षोडशकारण प्रारंभ</span></li>
+        <li><span class="cal-date">भाद्रपद मास – शुक्ल ५</span><span class="cal-event">दशलक्षण प्रारंभ</span></li>
+        <li><span class="cal-date">भाद्रपद मास – शुक्ल ७</span><span class="cal-event">निर्दोष सप्तमी</span></li>
+        <li><span class="cal-date">भाद्रपद मास – शुक्ल १०</span><span class="cal-event">सुगंध दशमी</span></li>
+        <li><span class="cal-date">भाद्रपद मास – शुक्ल ११</span><span class="cal-event">श्रुतस्कंध पूजा</span></li>
+        <li><span class="cal-date">भाद्रपद मास – शुक्ल १२</span><span class="cal-event">रत्नत्रय द्वादशी – अनंत व्रतारंभ</span></li>
+        <li><span class="cal-date">भाद्रपद मास – शुक्ल १४</span><span class="cal-event">जीवदया पूजा</span></li>
+        <li><span class="cal-date">भाद्रपद मास – शुक्ल १५</span><span class="cal-event">दशलक्षण – रत्नत्रय व्रत समाप्त</span></li>
+        <li><span class="cal-date">भाद्रपद मास – कृष्ण १</span><span class="cal-event">पर्युषण पर्व समाप्त</span></li>
+        <li><span class="cal-date">भाद्रपद मास – कृष्ण २</span><span class="cal-event">षोडशकारण पर्व समाप्त</span></li>
+        <li><span class="cal-date">आश्विन मास – शुक्ल १</span><span class="cal-event">नवरात्र प्रारंभ</span></li>
+        <li><span class="cal-date">आश्विन मास – शुक्ल ९</span><span class="cal-event">नवरात्र समाप्त</span></li>
+        <li><span class="cal-date">आश्विन मास – कृष्ण १४</span><span class="cal-event">निर्वाण चतुर्दशी</span></li>
+        <li><span class="cal-date">आश्विन मास – कृष्ण ३०</span><span class="cal-event">महावीर मोक्षतिथी निर्वाणोत्सव</span></li>
+        <li><span class="cal-date">कार्तिक मास – कृष्ण ३० | शुक्ल १</span><span class="cal-event">लक्ष्मी-सरस्वती पूजन – महावीर निर्वाणोत्सव – संवत्सरारंभ</span></li>
+        <li><span class="cal-date">कार्तिक मास – शुक्ल ८</span><span class="cal-event">अष्टान्हिक व्रतारंभ</span></li>
+        <li><span class="cal-date">कार्तिक मास – शुक्ल १५</span><span class="cal-event">अष्टान्हिक समाप्त</span></li>
+        <li><span class="cal-date">फाल्गुन मास – शुक्ल ८</span><span class="cal-event">अष्टान्हिक व्रतारंभ</span></li>
+        <li><span class="cal-date">फाल्गुन मास – शुक्ल १५</span><span class="cal-event">अष्टान्हिक समाप्त</span></li>
+        <li><span class="cal-date">फाल्गुन मास – कृष्ण ८</span><span class="cal-event">श्री आदिनाथ जयंती</span></li>
+      </ul>
+
+      <p class="calendar-close">॥ इति जैन तिथी निर्णय ॥</p>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section id="map">
+    <div class="container">
+      <span class="eyebrow">कसे पोहोचाल</span>
+      <h2 class="section-title">मंदिराचे स्थान</h2>
+      <div class="map-frame">
+        <div class="ratio-16x9">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d238.87375141954172!2d74.4730168!3d16.6778831!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc0e32b19306c15%3A0xa819247c461240d2!2sAadinath%20digambar%20jain%20mandir!5e0!3m2!1sen!2sin!4v1764825902942!5m2!1sen!2sin"
+            title="श्री १००८ आदिनाथ दिगंबर जैन मंदिर - गुगल नकाशा"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+      <a class="map-link" href="https://maps.app.goo.gl/XfVt5HkoUJ1JuqMC8" target="_blank" rel="noopener">Google नकाशांमध्ये उघडा &rarr;</a>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="alt">
+    <div class="container">
+      <span class="eyebrow">संपर्क</span>
+      <h2 class="section-title">आमच्याशी संपर्क साधा</h2>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>श्री. राजू उर्फ जिनेंद्र शां. उपाध्ये.</h3>
+          <p class="role">पंडित जी (विद्वान)</p>
+          <a class="phone" href="tel:+91 7588324305">+91 7588324305</a><br>
+          <a class="phone" href="tel:+91 9370595052">+91 9370595052</a>
+        </div>
+        <div class="contact-card">
+          <h3>श्री. मोहन रमेश उपाध्ये.</h3>
+          <p class="role">वीर सेवा दल — तालुका सदस्य आणि संघनायक</p>
+          <a class="phone" href="tel:+91 9604462164">+91 9604462164</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
 
 <!-- Footer -->
-<footer class="text-center">
-  <p>© २०२५-२०२६ श्री १००८ आदिनाथ दिगंबर जैन मंदिर, गावभाग, इचलकरंजी. All rights reserved.</p>
+<footer>
+  <div class="container">
+    <p>&copy; <span id="year"></span> श्री १००८ आदिनाथ दिगंबर जैन मंदिर, गावभाग, इचलकरंजी. सर्व हक्क राखीव. (४१६ ११५) </p>
+  </div>
 </footer>
 
-<!-- Bootstrap JS -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<button class="to-top" id="toTop" aria-label="वर जा">&uarr;</button>
+
+<script>
+  (function () {
+    "use strict";
+
+    // Footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Mobile nav toggle
+    var toggle = document.getElementById("navToggle");
+    var links = document.getElementById("navLinks");
+    toggle.addEventListener("click", function () {
+      var isOpen = links.classList.toggle("open");
+      toggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+    links.querySelectorAll("a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        links.classList.remove("open");
+        toggle.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // Back-to-top button
+    var toTop = document.getElementById("toTop");
+    window.addEventListener("scroll", function () {
+      toTop.classList.toggle("visible", window.scrollY > 480);
+    });
+    toTop.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  })();
+
+   /* ==========================
+   Gallery Image Viewer
+   ========================== */
+
+   const modal = document.getElementById("imageModal");
+   const modalImg = document.getElementById("modalImage");
+   const downloadBtn = document.getElementById("downloadBtn");
+   const cancelBtn = document.getElementById("cancelBtn");
+   const closeBtn = document.querySelector(".close-btn");
+
+   document.querySelectorAll(".gallery-card img").forEach(function(img){
+
+    img.addEventListener("click",function(){
+
+        modal.classList.add("show");
+
+        modalImg.src = this.src;
+        modalImg.alt = this.alt;
+
+        downloadBtn.href = this.src;
+        downloadBtn.download = this.alt + ".jpg";
+
+    });
+
+});
+
+    function closeModal(){
+       modal.classList.remove("show");
+    }
+
+    closeBtn.addEventListener("click",closeModal);
+
+    cancelBtn.addEventListener("click",closeModal);
+
+    modal.addEventListener("click",function(e){
+
+    if(e.target===modal){
+        closeModal();
+    }
+
+   });
+
+   document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+        closeModal();
+    }
+ 
+   });
+</script>
+
 </body>
 </html>
